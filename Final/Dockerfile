@@ -1,9 +1,12 @@
 FROM ruby:2.6.5-alpine
-LABEL maintainer="georg@ledermann.dev"
+LABEL maintainer="lebalz@outlook.com"
 
 # Add basic packages
 RUN apk add --update --no-cache \
       postgresql-client \
+      mariadb-client \
+      mysql-client \
+      libffi-dev \
       tzdata \
       file
 

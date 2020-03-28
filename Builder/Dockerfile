@@ -1,10 +1,13 @@
 FROM ruby:2.6.5-alpine
-LABEL maintainer="georg@ledermann.dev"
+LABEL maintainer="lebalz@outlook.com"
 
 # Add basic packages
 RUN apk add --update --no-cache \
       build-base \
       postgresql-dev \
+      mariadb-dev \
+      mysql-client \
+      libffi-dev \
       git \
       nodejs \
       yarn \
