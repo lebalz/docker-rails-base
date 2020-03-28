@@ -14,6 +14,9 @@ RUN apk add --update --no-cache \
       tzdata \
       file
 
+RUN echo "# Update bundler" && \
+      gem install bundler:2.1.4 --no-document
+
 WORKDIR /app
 
 # Install standard Node modules
