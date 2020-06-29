@@ -5,7 +5,7 @@ ruby '2.6.5'
 
 gem 'sassc-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.0.3'
 gem 'pg', '~> 0.18'
 gem 'mysql2', '~>0.5.2'
 
@@ -42,6 +42,9 @@ gem 'webpacker', '~>4.2.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'travis'
+
+# support composite primary keys, e.g. for group members
+gem 'composite_primary_keys', '~> 12'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
