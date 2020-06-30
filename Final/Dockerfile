@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-alpine
+FROM ruby:2.7.1-alpine
 LABEL maintainer="lebalz@outlook.com"
 
 # Add basic packages
