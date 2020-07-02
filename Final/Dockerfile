@@ -4,6 +4,7 @@ LABEL maintainer="lebalz@outlook.com"
 # Add basic packages
 RUN apk add --update --no-cache \
       postgresql-client \
+      mysql-client \
       mariadb-dev \
       libffi-dev \
       tzdata \
