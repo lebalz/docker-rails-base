@@ -6,6 +6,8 @@ RUN apk add --update --no-cache \
       postgresql-client \
       mysql-client \
       mariadb-dev \
+      openssl \
+      libressl-dev \
       libffi-dev \
       tzdata \
       bash \

@@ -1,2 +1,3 @@
 .vscode/*
 /Builder/node_modules
+FullBuilder/node_modules

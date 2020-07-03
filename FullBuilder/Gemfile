@@ -1,0 +1,50 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.7.1'
+
+gem 'sassc-rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 6.0.3'
+gem 'pg', '~> 0.18'
+gem 'mysql2', '~>0.5.2'
+
+# Use Puma as the app server
+gem 'puma', '~> 4.3'
+
+gem 'redis'
+gem 'hiredis'
+gem 'turbolinks', '~> 5'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possibls
+gem 'rack-cors', require: 'rack/cors'
+
+# for faster JSON parsing/encoding
+gem 'oj'
+
+# A generic swappable back-end for JSON handling that choose the fastest available JSON coder
+gem 'multi_json', '~>1.13.1'
+
+# DSL for writing APIs
+gem 'grape'
+gem 'grape-swagger'
+gem 'grape-entity'
+
+# For background jobs
+gem 'sidekiq'
+
+gem 'semantic-ui-sass'
+gem 'uglifier', '>=4.1.12'
+gem 'webpacker', '~>4.2.2'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'travis'
+
+# support composite primary keys, e.g. for group members
+gem 'composite_primary_keys', '~> 12'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

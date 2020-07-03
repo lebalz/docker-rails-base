@@ -6,13 +6,14 @@ RUN apk add --update --no-cache \
       build-base \
       postgresql-dev \
       mariadb-dev \
-      mysql-client \
       libffi-dev \
       git \
       nodejs \
       yarn \
       tzdata \
       file
+
+RUN mkdir /etc/mysql/certs
 
 RUN echo "# Update bundler" && \
       gem install bundler:2.1.4 --no-document
