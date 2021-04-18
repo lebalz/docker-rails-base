@@ -12,10 +12,10 @@ RUN apt-get install -my gnupg
 RUN echo "# Generate locales" && \
       echo "# Upgrade apt" && \
       sed -i 's/main$/main contrib/g' /etc/apt/sources.list && \
-      curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash - && \
+      curl -sL https://deb.nodesource.com/setup_15.x | sudo - && \
       curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-      echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-      apt-get update && apt-get upgrade -y && \
+      echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get upgrade -y && \
       echo "# Install common dev dependencies via apt" && \
       apt-get install -y \
       openssl libreadline-dev libyaml-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libpq-dev libxml2-dev libxslt-dev libc6-dev libmsgpack-dev \
