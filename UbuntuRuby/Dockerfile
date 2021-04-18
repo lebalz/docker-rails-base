@@ -9,34 +9,34 @@ ENV TZ=Europe/Zurich
 
 RUN apt-get update && \
     apt-get install -y \
-        autoconf\
-        bison \
-        build-essential \
-        libssl-dev \
-        libyaml-dev \
-        libreadline6-dev \
-        zlib1g-dev \
-        libncurses5-dev \
-        libffi-dev \
-        libgdbm6 \
-        libgdbm-dev \
-        libdb-dev \
-        apt-utils \
-        locales \
-        git \
-        curl \
-        gcc \
-        make \
-        libssl-dev \
-        zlib1g-dev \
-        libreadline-dev \
-        libmysqlclient-dev \
-        libffi-dev \
-        redis-server \
-        build-essential \
-        mysql-client \
-        libxslt1-dev \
-        libsqlite3-dev
+    autoconf\
+    bison \
+    build-essential \
+    libssl-dev \
+    libyaml-dev \
+    libreadline6-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libffi-dev \
+    libgdbm6 \
+    libgdbm-dev \
+    libdb-dev \
+    apt-utils \
+    locales \
+    git \
+    curl \
+    gcc \
+    make \
+    libssl-dev \
+    zlib1g-dev \
+    libreadline-dev \
+    libmysqlclient-dev \
+    libffi-dev \
+    redis-server \
+    build-essential \
+    mysql-client \
+    libxslt1-dev \
+    libsqlite3-dev
 
 RUN git clone git://github.com/rbenv/ruby-build.git $RUBY_PATH/plugins/ruby-build && \
     $RUBY_PATH/plugins/ruby-build/install.sh
@@ -49,14 +49,14 @@ ENV RUBY_PATH=/usr/local
 ENV PATH $RUBY_PATH/bin:$PATH
 RUN apt-get update && \
     apt-get install -y \
-        git \
-        curl \
-        gcc \
-        make \
-        libssl-dev \
-        libyaml-dev \
-        zlib1g-dev \
-        libmysqlclient-dev
+    git \
+    curl \
+    gcc \
+    make \
+    libssl-dev \
+    libyaml-dev \
+    zlib1g-dev \
+    libmysqlclient-dev
 
 COPY --from=rubybuild $RUBY_PATH $RUBY_PATH
 CMD [ "irb" ]
