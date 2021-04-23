@@ -32,6 +32,7 @@ WORKDIR /app
 RUN echo "# Update bundler" && \
       gem install bundler:2.2.16 --no-document
 
+RUN echo "Install python2" && apt install -y python2 
 # Install standard Node modules
 COPY package.json yarn.lock /app/
 RUN yarn install
@@ -43,6 +44,8 @@ ENV BUNDLE_PATH=/usr/local/bundle/gems/
 
 # Increase node heap
 ENV NODE_OPTIONS='--max-old-space-size=8192'
+
+RUN apt install libsqlite3-dev
 
 RUN bundle config --global frozen 1 && \
       bundle config --local build.sassc --disable-march-tune-native && \

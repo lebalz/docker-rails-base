@@ -1,9 +1,10 @@
 ![Build images](https://github.com/ledermann/docker-rails-base/workflows/Build%20images/badge.svg)
 
+https://hub.docker.com/repository/docker/lebalz/rails-full-final/builds
+
 # DockerRailsBase
 
 Building Docker images usually takes a long time. This repo contains base images with preinstalled dependencies for [Ruby on Rails](https://rubyonrails.org/), so building a production image will be **2-3 times faster**.
-
 
 ## What?
 
@@ -12,7 +13,6 @@ When using the official Ruby image, building a Docker image for a typical Rails 
 I was looking for a way to reduce this time, so I created base images that contain most of the dependencies used in my applications.
 
 And while I'm at it, I also moved as much as possible from the app-specific Dockerfile into the base image by using [ONBUILD](https://docs.docker.com/engine/reference/builder/#onbuild) triggers. This makes the Dockerfile in my apps small and simple.
-
 
 ## Performance
 
@@ -24,7 +24,6 @@ I compared building times using a typical Rails application. This is the result 
 As you can see, using DockerRailsBase is more than **2 times faster** compared to the official Ruby image. It saves nearly **3min** on every build.
 
 Note: Before I started timing, the base image was not available on my machine, so it was downloaded first, which took some time. If the base image is already available, the building time is only 1:18min (**3 times faster**).
-
 
 ## How?
 
@@ -50,7 +49,6 @@ Used for installing Ruby gems and Node modules. Includes Git, Node.js and some b
 
 See [Builder/Dockerfile](./Builder/Dockerfile)
 
-
 ### Final stage
 
 Used to build the production image which includes just the minimum.
@@ -61,11 +59,9 @@ Used to build the production image which includes just the minimum.
 
 See [Final/Dockerfile](./Final/Dockerfile)
 
-
 ### Staying up-to-date
 
 Using [Dependabot](https://dependabot.com/), every updated Ruby gem or Node module will lead to an updated image.
-
 
 ### Usage example
 
@@ -77,7 +73,6 @@ CMD ["startup.sh"] # defined in the app image
 ```
 
 Yes, this is the complete Dockerfile of the Rails app. It's so simple because the work is done by ONBUILD triggers.
-
 
 ## FAQ
 
@@ -98,3 +93,14 @@ This doesn't matter:
 ### There are gems included that my app doesn't need. Will they bloat the resulting image?
 
 No. In the build stage there is a `bundle clean --force`, which uninstalls all gems not referenced in the app's Gemfile.
+
+## Upload to dockerhub
+
+```sh
+cd FullBuilder
+
+docker build -t lebalz/rails-full-builder:latest .
+
+docker login --username FOOBAR --password YOUR-SAFE-PASSWORD
+docker push lebalz/rails-full-builder:latest
+```
