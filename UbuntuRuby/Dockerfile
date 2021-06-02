@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 AS rubybuild
 
 ENV RUBY_PATH=/usr/local
-ENV RUBY_VERSION=2.7.1
+ENV RUBY_VERSION=3.0.1
 
 # for tz data
 ENV DEBIAN_FRONTEND=noninteractive 
